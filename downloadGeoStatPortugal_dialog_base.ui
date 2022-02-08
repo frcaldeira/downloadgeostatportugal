@@ -1,0 +1,4128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>downloadgeostatportugalDialogBase</class>
+ <widget class="QDialog" name="downloadgeostatportugalDialogBase">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>575</width>
+    <height>416</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Import alfanumeric and geographical Open Data</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>C:/Users/francisco.caldeira/.designer/backup/icon.png</normaloff>C:/Users/francisco.caldeira/.designer/backup/icon.png</iconset>
+  </property>
+  <property name="locale">
+   <locale language="English" country="UnitedKingdom"/>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QTabWidget" name="tabWidget">
+     <property name="enabled">
+      <bool>true</bool>
+     </property>
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="tab">
+      <attribute name="title">
+       <string>Census</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout_2">
+       <item row="0" column="0">
+        <layout class="QVBoxLayout" name="verticalLayout">
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="maximumSize">
+            <size>
+             <width>16777215</width>
+             <height>40</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Reference data</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rb1991">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>1991</string>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroupYears</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rb2001">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>2001</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroupYears</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rb2011">
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>2011</string>
+           </property>
+           <property name="checked">
+            <bool>false</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroupYears</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <widget class="QRadioButton" name="rb2021">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>10</pointsize>
+             <weight>50</weight>
+             <bold>false</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>2021</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">buttonGroupYears</string>
+           </attribute>
+          </widget>
+         </item>
+         <item>
+          <spacer name="verticalSpacer">
+           <property name="orientation">
+            <enum>Qt::Vertical</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>20</width>
+             <height>40</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="0" column="1">
+        <widget class="QTreeWidget" name="GU_treeWidget">
+         <property name="enabled">
+          <bool>true</bool>
+         </property>
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>450</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="toolTip">
+          <string>Select a geographical unit do download</string>
+         </property>
+         <property name="headerHidden">
+          <bool>true</bool>
+         </property>
+         <property name="columnCount">
+          <number>3</number>
+         </property>
+         <attribute name="headerVisible">
+          <bool>false</bool>
+         </attribute>
+         <column>
+          <property name="text">
+           <string>Select a geographical unit</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>name</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>nivel</string>
+          </property>
+         </column>
+         <item>
+          <property name="text">
+           <string>Portugal</string>
+          </property>
+          <property name="text">
+           <string>portugal</string>
+          </property>
+          <property name="text">
+           <string>Nacional</string>
+          </property>
+          <item>
+           <property name="text">
+            <string>Continente</string>
+           </property>
+           <property name="text">
+            <string>CONT</string>
+           </property>
+           <property name="text">
+            <string>NUTS-I</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Norte</string>
+            </property>
+            <property name="text">
+             <string>NORTE</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Alto Minho</string>
+             </property>
+             <property name="text">
+              <string>111</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Arcos de Valdevez</string>
+              </property>
+              <property name="text">
+               <string>1601</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Caminha</string>
+              </property>
+              <property name="text">
+               <string>1602</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Melgaço</string>
+              </property>
+              <property name="text">
+               <string>1603</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Monção</string>
+              </property>
+              <property name="text">
+               <string>1604</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Paredes de Coura</string>
+              </property>
+              <property name="text">
+               <string>1605</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ponte da Barca</string>
+              </property>
+              <property name="text">
+               <string>1606</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ponte de Lima</string>
+              </property>
+              <property name="text">
+               <string>1607</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Valença</string>
+              </property>
+              <property name="text">
+               <string>1608</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Viana do Castelo</string>
+              </property>
+              <property name="text">
+               <string>1609</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova de Cerveira</string>
+              </property>
+              <property name="text">
+               <string>1610</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Cávado</string>
+             </property>
+             <property name="text">
+              <string>112</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Amares</string>
+              </property>
+              <property name="text">
+               <string>0301</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Barcelos</string>
+              </property>
+              <property name="text">
+               <string>0302</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Braga</string>
+              </property>
+              <property name="text">
+               <string>0303</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Esposende</string>
+              </property>
+              <property name="text">
+               <string>0306</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Terras de Bouro</string>
+              </property>
+              <property name="text">
+               <string>0310</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Verde</string>
+              </property>
+              <property name="text">
+               <string>0313</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Ave</string>
+             </property>
+             <property name="text">
+              <string>119</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Cabeceiras de Basto</string>
+              </property>
+              <property name="text">
+               <string>0304</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fafe</string>
+              </property>
+              <property name="text">
+               <string>0307</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Guimarães</string>
+              </property>
+              <property name="text">
+               <string>0308</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mondim de Basto</string>
+              </property>
+              <property name="text">
+               <string>1705</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Póvoa de Lanhoso</string>
+              </property>
+              <property name="text">
+               <string>0309</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vieira do Minho</string>
+              </property>
+              <property name="text">
+               <string>0311</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova de Famalicão</string>
+              </property>
+              <property name="text">
+               <string>0312</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vizela</string>
+              </property>
+              <property name="text">
+               <string>0314</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Área Metropolitana do Porto</string>
+             </property>
+             <property name="text">
+              <string>11A</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Arouca</string>
+              </property>
+              <property name="text">
+               <string>0104</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Espinho</string>
+              </property>
+              <property name="text">
+               <string>0107</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Gondomar</string>
+              </property>
+              <property name="text">
+               <string>1304</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Maia</string>
+              </property>
+              <property name="text">
+               <string>1306</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Matosinhos</string>
+              </property>
+              <property name="text">
+               <string>1308</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Oliveira de Azeméis</string>
+              </property>
+              <property name="text">
+               <string>0113</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Paredes</string>
+              </property>
+              <property name="text">
+               <string>1310</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Porto</string>
+              </property>
+              <property name="text">
+               <string>1312</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Póvoa de Varzim</string>
+              </property>
+              <property name="text">
+               <string>1313</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santa Maria da Feira</string>
+              </property>
+              <property name="text">
+               <string>0109</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santo Tirso</string>
+              </property>
+              <property name="text">
+               <string>1314</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>São João da Madeira</string>
+              </property>
+              <property name="text">
+               <string>0116</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Trofa</string>
+              </property>
+              <property name="text">
+               <string>1318</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vale de Cambra</string>
+              </property>
+              <property name="text">
+               <string>0119</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Valongo</string>
+              </property>
+              <property name="text">
+               <string>1315</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila do Conde</string>
+              </property>
+              <property name="text">
+               <string>1316</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova de Gaia</string>
+              </property>
+              <property name="text">
+               <string>1317</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Alto Tâmega</string>
+             </property>
+             <property name="text">
+              <string>11B</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Boticas</string>
+              </property>
+              <property name="text">
+               <string>1702</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Chaves</string>
+              </property>
+              <property name="text">
+               <string>1703</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Montalegre</string>
+              </property>
+              <property name="text">
+               <string>1706</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ribeira de Pena</string>
+              </property>
+              <property name="text">
+               <string>1709</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Valpaços</string>
+              </property>
+              <property name="text">
+               <string>1712</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Pouca de Aguiar</string>
+              </property>
+              <property name="text">
+               <string>1713</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Tâmega e Sousa</string>
+             </property>
+             <property name="text">
+              <string>11C</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Amarante</string>
+              </property>
+              <property name="text">
+               <string>1301</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Baião</string>
+              </property>
+              <property name="text">
+               <string>1302</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Castelo de Paiva</string>
+              </property>
+              <property name="text">
+               <string>0106</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celorico de Basto</string>
+              </property>
+              <property name="text">
+               <string>0305</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cinfães</string>
+              </property>
+              <property name="text">
+               <string>1804</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Felgueiras</string>
+              </property>
+              <property name="text">
+               <string>1303</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lousada</string>
+              </property>
+              <property name="text">
+               <string>1305</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Marco de Canaveses</string>
+              </property>
+              <property name="text">
+               <string>1307</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Paços de Ferreira</string>
+              </property>
+              <property name="text">
+               <string>1309</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Penafiel</string>
+              </property>
+              <property name="text">
+               <string>1311</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Resende</string>
+              </property>
+              <property name="text">
+               <string>1813</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Douro</string>
+             </property>
+             <property name="text">
+              <string>11D</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alijó</string>
+              </property>
+              <property name="text">
+               <string>1701</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Armamar</string>
+              </property>
+              <property name="text">
+               <string>1801</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Carrazeda de Ansiães</string>
+              </property>
+              <property name="text">
+               <string>0403</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Freixo de Espada à Cinta</string>
+              </property>
+              <property name="text">
+               <string>0404</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lamego</string>
+              </property>
+              <property name="text">
+               <string>1805</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mesão Frio</string>
+              </property>
+              <property name="text">
+               <string>1704</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Moimenta da Beira</string>
+              </property>
+              <property name="text">
+               <string>1807</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Murça</string>
+              </property>
+              <property name="text">
+               <string>1707</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Penedono</string>
+              </property>
+              <property name="text">
+               <string>1812</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Peso da Régua</string>
+              </property>
+              <property name="text">
+               <string>1708</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sabrosa</string>
+              </property>
+              <property name="text">
+               <string>1710</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santa Marta de Penaguião</string>
+              </property>
+              <property name="text">
+               <string>1711</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>São João da Pesqueira</string>
+              </property>
+              <property name="text">
+               <string>1815</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sernancelhe</string>
+              </property>
+              <property name="text">
+               <string>1818</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tabuaço</string>
+              </property>
+              <property name="text">
+               <string>1819</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tarouca</string>
+              </property>
+              <property name="text">
+               <string>1820</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Torre de Moncorvo</string>
+              </property>
+              <property name="text">
+               <string>0409</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova de Foz Côa</string>
+              </property>
+              <property name="text">
+               <string>0914</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Real</string>
+              </property>
+              <property name="text">
+               <string>1714</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Alto Trás-os-Montes</string>
+             </property>
+             <property name="text">
+              <string>11E</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alfândega da Fé</string>
+              </property>
+              <property name="text">
+               <string>0401</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bragança</string>
+              </property>
+              <property name="text">
+               <string>0402</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Macedo de Cavaleiros</string>
+              </property>
+              <property name="text">
+               <string>0405</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Miranda do Corvo</string>
+              </property>
+              <property name="text">
+               <string>0406</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mirandela</string>
+              </property>
+              <property name="text">
+               <string>0407</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mogadouro</string>
+              </property>
+              <property name="text">
+               <string>0408</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Flor</string>
+              </property>
+              <property name="text">
+               <string>0410</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vimioso</string>
+              </property>
+              <property name="text">
+               <string>0411</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vinhais</string>
+              </property>
+              <property name="text">
+               <string>0412</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>Centro</string>
+            </property>
+            <property name="text">
+             <string>CENTRO</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Oeste</string>
+             </property>
+             <property name="text">
+              <string>16B</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alcobaça</string>
+              </property>
+              <property name="text">
+               <string>1001</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Alenquer</string>
+              </property>
+              <property name="text">
+               <string>1101</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Arruda dos Vinhos</string>
+              </property>
+              <property name="text">
+               <string>1102</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Bombarral</string>
+              </property>
+              <property name="text">
+               <string>1005</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cadaval</string>
+              </property>
+              <property name="text">
+               <string>1104</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Caldas da Rainha</string>
+              </property>
+              <property name="text">
+               <string>1006</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lourinhã</string>
+              </property>
+              <property name="text">
+               <string>1108</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nazaré</string>
+              </property>
+              <property name="text">
+               <string>1111</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Óbidos</string>
+              </property>
+              <property name="text">
+               <string>1012</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Peniche</string>
+              </property>
+              <property name="text">
+               <string>1014</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sobral de Monte Agraço</string>
+              </property>
+              <property name="text">
+               <string>1112</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Torres Vedras</string>
+              </property>
+              <property name="text">
+               <string>1113</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Região de Aveiro</string>
+             </property>
+             <property name="text">
+              <string>16D</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Águeda</string>
+              </property>
+              <property name="text">
+               <string>0101</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Albergaria-a-Velha</string>
+              </property>
+              <property name="text">
+               <string>0102</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Anadia</string>
+              </property>
+              <property name="text">
+               <string>0103</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Aveiro</string>
+              </property>
+              <property name="text">
+               <string>0105</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Estarreja</string>
+              </property>
+              <property name="text">
+               <string>0108</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ílhavo</string>
+              </property>
+              <property name="text">
+               <string>0110</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Murtosa</string>
+              </property>
+              <property name="text">
+               <string>0112</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Oliveira do Bairro</string>
+              </property>
+              <property name="text">
+               <string>0114</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ovar</string>
+              </property>
+              <property name="text">
+               <string>0115</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sever do Vouga</string>
+              </property>
+              <property name="text">
+               <string>0117</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vagos</string>
+              </property>
+              <property name="text">
+               <string>0118</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Região de Coimbra</string>
+             </property>
+             <property name="text">
+              <string>16E</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Arganil</string>
+              </property>
+              <property name="text">
+               <string>0601</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cantanhede</string>
+              </property>
+              <property name="text">
+               <string>0602</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Coimbra</string>
+              </property>
+              <property name="text">
+               <string>0603</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Condeixa-a-Nova</string>
+              </property>
+              <property name="text">
+               <string>0604</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Figueira da Foz</string>
+              </property>
+              <property name="text">
+               <string>0605</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Góis</string>
+              </property>
+              <property name="text">
+               <string>0606</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lousã</string>
+              </property>
+              <property name="text">
+               <string>0607</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mealhada</string>
+              </property>
+              <property name="text">
+               <string>0111</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mira</string>
+              </property>
+              <property name="text">
+               <string>0608</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Miranda do Corvo</string>
+              </property>
+              <property name="text">
+               <string>0609</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Montemor-o-Velho</string>
+              </property>
+              <property name="text">
+               <string>0610</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mortágua</string>
+              </property>
+              <property name="text">
+               <string>1808</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Oliveira do Hospital</string>
+              </property>
+              <property name="text">
+               <string>0611</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Pampilhosa da Serra</string>
+              </property>
+              <property name="text">
+               <string>0612</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Penacova</string>
+              </property>
+              <property name="text">
+               <string>0613</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Penela</string>
+              </property>
+              <property name="text">
+               <string>0614</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Soure</string>
+              </property>
+              <property name="text">
+               <string>0615</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tábua</string>
+              </property>
+              <property name="text">
+               <string>0616</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova de Poiares</string>
+              </property>
+              <property name="text">
+               <string>0617</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Região de Leiria</string>
+             </property>
+             <property name="text">
+              <string>16F</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alvaiázere</string>
+              </property>
+              <property name="text">
+               <string>1002</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ansião</string>
+              </property>
+              <property name="text">
+               <string>1003</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Batalha</string>
+              </property>
+              <property name="text">
+               <string>1004</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Castanheira de Pêra</string>
+              </property>
+              <property name="text">
+               <string>1007</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Figueiró dos Vinhos</string>
+              </property>
+              <property name="text">
+               <string>1008</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Leiria</string>
+              </property>
+              <property name="text">
+               <string>1009</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Marinha Grande</string>
+              </property>
+              <property name="text">
+               <string>1010</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Pedrógão Grande</string>
+              </property>
+              <property name="text">
+               <string>1013</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Pombal</string>
+              </property>
+              <property name="text">
+               <string>1015</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Porto de Mós</string>
+              </property>
+              <property name="text">
+               <string>1016</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Viseu Dão Lafões</string>
+             </property>
+             <property name="text">
+              <string>16G</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Aguiar da Beira</string>
+              </property>
+              <property name="text">
+               <string>0901</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Carregal do Sal</string>
+              </property>
+              <property name="text">
+               <string>1802</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Castro Daire</string>
+              </property>
+              <property name="text">
+               <string>1803</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mangualde</string>
+              </property>
+              <property name="text">
+               <string>1806</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nelas</string>
+              </property>
+              <property name="text">
+               <string>1809</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Oliveira de Frades</string>
+              </property>
+              <property name="text">
+               <string>1810</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Penalva do Castelo</string>
+              </property>
+              <property name="text">
+               <string>1811</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santa Comba Dão</string>
+              </property>
+              <property name="text">
+               <string>1814</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>São Pedro do Sul</string>
+              </property>
+              <property name="text">
+               <string>1816</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sátão</string>
+              </property>
+              <property name="text">
+               <string>1817</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tondela</string>
+              </property>
+              <property name="text">
+               <string>1821</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova de Paiva</string>
+              </property>
+              <property name="text">
+               <string>1822</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Viseu</string>
+              </property>
+              <property name="text">
+               <string>1823</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vouzela</string>
+              </property>
+              <property name="text">
+               <string>1824</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Beira Baixa</string>
+             </property>
+             <property name="text">
+              <string>16H</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Castelo Branco</string>
+              </property>
+              <property name="text">
+               <string>0502</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Idanha-a-Nova</string>
+              </property>
+              <property name="text">
+               <string>0505</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Oleiros</string>
+              </property>
+              <property name="text">
+               <string>0506</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Penamacor</string>
+              </property>
+              <property name="text">
+               <string>0507</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Proença-a-Nova</string>
+              </property>
+              <property name="text">
+               <string>0508</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Velha de Ródão</string>
+              </property>
+              <property name="text">
+               <string>0511</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Médio Tejo</string>
+             </property>
+             <property name="text">
+              <string>16I</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Abrantes</string>
+              </property>
+              <property name="text">
+               <string>1401</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Alcanena</string>
+              </property>
+              <property name="text">
+               <string>1402</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Constância</string>
+              </property>
+              <property name="text">
+               <string>1408</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Entroncamento</string>
+              </property>
+              <property name="text">
+               <string>1410</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ferreira do Zêzere</string>
+              </property>
+              <property name="text">
+               <string>1411</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mação</string>
+              </property>
+              <property name="text">
+               <string>1413</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ourém</string>
+              </property>
+              <property name="text">
+               <string>1421</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sardoal</string>
+              </property>
+              <property name="text">
+               <string>1417</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sertã</string>
+              </property>
+              <property name="text">
+               <string>0509</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tomar</string>
+              </property>
+              <property name="text">
+               <string>1418</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Torres Novas</string>
+              </property>
+              <property name="text">
+               <string>1419</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila de Rei</string>
+              </property>
+              <property name="text">
+               <string>0510</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Nova da Barquinha</string>
+              </property>
+              <property name="text">
+               <string>1420</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Beiras e Serra da Estrela</string>
+             </property>
+             <property name="text">
+              <string>16J</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Almeida</string>
+              </property>
+              <property name="text">
+               <string>0902</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Belmonte</string>
+              </property>
+              <property name="text">
+               <string>0501</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Celorico da Beira</string>
+              </property>
+              <property name="text">
+               <string>0903</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Covilhã</string>
+              </property>
+              <property name="text">
+               <string>0503</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Figueira de Castelo Rodrigo</string>
+              </property>
+              <property name="text">
+               <string>0904</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fornos de Algodres</string>
+              </property>
+              <property name="text">
+               <string>0905</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fundão</string>
+              </property>
+              <property name="text">
+               <string>0504</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Gouveia</string>
+              </property>
+              <property name="text">
+               <string>0906</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Guarda</string>
+              </property>
+              <property name="text">
+               <string>0907</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Manteigas</string>
+              </property>
+              <property name="text">
+               <string>0908</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mêda</string>
+              </property>
+              <property name="text">
+               <string>0909</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Pinhel</string>
+              </property>
+              <property name="text">
+               <string>0910</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sabugal</string>
+              </property>
+              <property name="text">
+               <string>0911</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Seia</string>
+              </property>
+              <property name="text">
+               <string>0912</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Trancoso</string>
+              </property>
+              <property name="text">
+               <string>0913</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>Área Metropolitana de Lisboa</string>
+            </property>
+            <property name="text">
+             <string>LISBOA</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Área Metropolitana de Lisboa</string>
+             </property>
+             <property name="text">
+              <string>170</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alcochete</string>
+              </property>
+              <property name="text">
+               <string>1502</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Almada</string>
+              </property>
+              <property name="text">
+               <string>1503</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Amadora</string>
+              </property>
+              <property name="text">
+               <string>1115</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Barreiro</string>
+              </property>
+              <property name="text">
+               <string>1504</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cascais</string>
+              </property>
+              <property name="text">
+               <string>1105</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lisboa</string>
+              </property>
+              <property name="text">
+               <string>1106</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Loures</string>
+              </property>
+              <property name="text">
+               <string>1107</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mafra</string>
+              </property>
+              <property name="text">
+               <string>1109</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Moita</string>
+              </property>
+              <property name="text">
+               <string>1506</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Montijo</string>
+              </property>
+              <property name="text">
+               <string>1507</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Odivelas</string>
+              </property>
+              <property name="text">
+               <string>1116</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Oeiras</string>
+              </property>
+              <property name="text">
+               <string>1110</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Palmela</string>
+              </property>
+              <property name="text">
+               <string>1508</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Seixal</string>
+              </property>
+              <property name="text">
+               <string>1510</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sesimbra</string>
+              </property>
+              <property name="text">
+               <string>1511</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Setúbal</string>
+              </property>
+              <property name="text">
+               <string>1512</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sintra</string>
+              </property>
+              <property name="text">
+               <string>1111</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Franca de Xira</string>
+              </property>
+              <property name="text">
+               <string>1114</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>Alentejo</string>
+            </property>
+            <property name="text">
+             <string>ALENTEJO</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Alentejo Litoral</string>
+             </property>
+             <property name="text">
+              <string>181</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alcácer do Sal</string>
+              </property>
+              <property name="text">
+               <string>1501</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Grândola</string>
+              </property>
+              <property name="text">
+               <string>1505</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Odemira</string>
+              </property>
+              <property name="text">
+               <string>0211</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santiago do Cacém</string>
+              </property>
+              <property name="text">
+               <string>1509</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sines</string>
+              </property>
+              <property name="text">
+               <string>1513</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Baixo Alentejo</string>
+             </property>
+             <property name="text">
+              <string>184</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Aljustrel</string>
+              </property>
+              <property name="text">
+               <string>0201</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Almodôvar</string>
+              </property>
+              <property name="text">
+               <string>0202</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Alvito</string>
+              </property>
+              <property name="text">
+               <string>0203</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Barrancos</string>
+              </property>
+              <property name="text">
+               <string>0204</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Beja</string>
+              </property>
+              <property name="text">
+               <string>0205</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Castro Verde</string>
+              </property>
+              <property name="text">
+               <string>0206</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cuba</string>
+              </property>
+              <property name="text">
+               <string>0207</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ferreira do Alentejo</string>
+              </property>
+              <property name="text">
+               <string>0208</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mértola</string>
+              </property>
+              <property name="text">
+               <string>0209</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Moura</string>
+              </property>
+              <property name="text">
+               <string>0210</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ourique</string>
+              </property>
+              <property name="text">
+               <string>0212</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Serpa</string>
+              </property>
+              <property name="text">
+               <string>0213</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vidigueira</string>
+              </property>
+              <property name="text">
+               <string>0214</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Lezíria do Tejo</string>
+             </property>
+             <property name="text">
+              <string>185</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Almeirim</string>
+              </property>
+              <property name="text">
+               <string>1403</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Alpiarça</string>
+              </property>
+              <property name="text">
+               <string>1404</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Azambuja</string>
+              </property>
+              <property name="text">
+               <string>1103</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Benavente</string>
+              </property>
+              <property name="text">
+               <string>1405</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Cartaxo</string>
+              </property>
+              <property name="text">
+               <string>1406</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Chamusca</string>
+              </property>
+              <property name="text">
+               <string>1407</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Coruche</string>
+              </property>
+              <property name="text">
+               <string>1409</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Golegã</string>
+              </property>
+              <property name="text">
+               <string>1412</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Rio Maior</string>
+              </property>
+              <property name="text">
+               <string>1414</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Salvaterra de Magos</string>
+              </property>
+              <property name="text">
+               <string>1415</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santarém</string>
+              </property>
+              <property name="text">
+               <string>1416</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Alto Alentejo</string>
+             </property>
+             <property name="text">
+              <string>186</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alter do Chão</string>
+              </property>
+              <property name="text">
+               <string>1201</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Arronches</string>
+              </property>
+              <property name="text">
+               <string>1202</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Avis</string>
+              </property>
+              <property name="text">
+               <string>1203</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mora</string>
+              </property>
+              <property name="text">
+               <string>0707</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Campo Maior</string>
+              </property>
+              <property name="text">
+               <string>1204</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Castelo de Vide</string>
+              </property>
+              <property name="text">
+               <string>1205</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Crato</string>
+              </property>
+              <property name="text">
+               <string>1206</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Elvas</string>
+              </property>
+              <property name="text">
+               <string>1207</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Fronteira</string>
+              </property>
+              <property name="text">
+               <string>1208</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Gavião</string>
+              </property>
+              <property name="text">
+               <string>1209</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Marvão</string>
+              </property>
+              <property name="text">
+               <string>1210</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Monforte</string>
+              </property>
+              <property name="text">
+               <string>1211</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nisa</string>
+              </property>
+              <property name="text">
+               <string>1212</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ponte de Sor</string>
+              </property>
+              <property name="text">
+               <string>1213</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Portalegre</string>
+              </property>
+              <property name="text">
+               <string>1214</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Sousel</string>
+              </property>
+              <property name="text">
+               <string>1215</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+            <item>
+             <property name="text">
+              <string>Alentejo Central</string>
+             </property>
+             <property name="text">
+              <string>187</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Alandroal</string>
+              </property>
+              <property name="text">
+               <string>0701</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Arraiolos</string>
+              </property>
+              <property name="text">
+               <string>0702</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Borba</string>
+              </property>
+              <property name="text">
+               <string>0703</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Estremoz</string>
+              </property>
+              <property name="text">
+               <string>0704</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Évora</string>
+              </property>
+              <property name="text">
+               <string>0705</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Montemor-o-Novo</string>
+              </property>
+              <property name="text">
+               <string>0706</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Mourão</string>
+              </property>
+              <property name="text">
+               <string>0708</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Portel</string>
+              </property>
+              <property name="text">
+               <string>0709</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Redondo</string>
+              </property>
+              <property name="text">
+               <string>0710</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Reguengos de Monsaraz</string>
+              </property>
+              <property name="text">
+               <string>0711</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Venda Novas</string>
+              </property>
+              <property name="text">
+               <string>0712</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Viana do Alentejo</string>
+              </property>
+              <property name="text">
+               <string>0713</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Viçosa</string>
+              </property>
+              <property name="text">
+               <string>0714</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+           <item>
+            <property name="text">
+             <string>Algarve</string>
+            </property>
+            <property name="text">
+             <string>ALGARVE</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Algarve</string>
+             </property>
+             <property name="text">
+              <string>150</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Albufeira</string>
+              </property>
+              <property name="text">
+               <string>0801</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Alcoutim</string>
+              </property>
+              <property name="text">
+               <string>0802</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Aljezur</string>
+              </property>
+              <property name="text">
+               <string>0803</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Castro Marim</string>
+              </property>
+              <property name="text">
+               <string>0804</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Faro</string>
+              </property>
+              <property name="text">
+               <string>0805</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lagoa</string>
+              </property>
+              <property name="text">
+               <string>0806</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lagos</string>
+              </property>
+              <property name="text">
+               <string>0807</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Loulé</string>
+              </property>
+              <property name="text">
+               <string>0808</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Monchique</string>
+              </property>
+              <property name="text">
+               <string>0809</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Olhão</string>
+              </property>
+              <property name="text">
+               <string>0810</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Portimão</string>
+              </property>
+              <property name="text">
+               <string>0811</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>São Brás de Alportel</string>
+              </property>
+              <property name="text">
+               <string>0812</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Silves</string>
+              </property>
+              <property name="text">
+               <string>0813</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Tavira</string>
+              </property>
+              <property name="text">
+               <string>0814</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila do Bispo</string>
+              </property>
+              <property name="text">
+               <string>0815</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Real de Santo antónio</string>
+              </property>
+              <property name="text">
+               <string>0816</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+          </item>
+          <item>
+           <property name="text">
+            <string>Região Autónoma dos Açores</string>
+           </property>
+           <property name="text">
+            <string>raa</string>
+           </property>
+           <property name="text">
+            <string>NUTS-I</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Região Autónoma dos Açores</string>
+            </property>
+            <property name="text">
+             <string>raa</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Região Autónoma dos Açores</string>
+             </property>
+             <property name="text">
+              <string>raa</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Vila do Porto</string>
+              </property>
+              <property name="text">
+               <string>4101</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lagoa (R.A.A.)</string>
+              </property>
+              <property name="text">
+               <string>4201</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Nordeste</string>
+              </property>
+              <property name="text">
+               <string>4202</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ponta Delgada</string>
+              </property>
+              <property name="text">
+               <string>4203</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Povoação</string>
+              </property>
+              <property name="text">
+               <string>4204</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ribeira Grande</string>
+              </property>
+              <property name="text">
+               <string>4205</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Franca do Campo</string>
+              </property>
+              <property name="text">
+               <string>4206</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Angra do Heroísmo</string>
+              </property>
+              <property name="text">
+               <string>4301</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Vila Praia da Vitória</string>
+              </property>
+              <property name="text">
+               <string>4302</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santa Cruz da Graciosa</string>
+              </property>
+              <property name="text">
+               <string>4401</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Calheta (R.A.A.)</string>
+              </property>
+              <property name="text">
+               <string>4501</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Velas</string>
+              </property>
+              <property name="text">
+               <string>4502</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lages do Pico</string>
+              </property>
+              <property name="text">
+               <string>4601</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Madalena</string>
+              </property>
+              <property name="text">
+               <string>4602</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>São Roque do Pico</string>
+              </property>
+              <property name="text">
+               <string>4603</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Horta</string>
+              </property>
+              <property name="text">
+               <string>4701</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Lages das Flores</string>
+              </property>
+              <property name="text">
+               <string>4801</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santa Cruz das Flores</string>
+              </property>
+              <property name="text">
+               <string>4802</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Corvo</string>
+              </property>
+              <property name="text">
+               <string>4901</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+          </item>
+          <item>
+           <property name="text">
+            <string>Região Autónoma da Madeira</string>
+           </property>
+           <property name="text">
+            <string>MAD</string>
+           </property>
+           <property name="text">
+            <string>NUTS-I</string>
+           </property>
+           <item>
+            <property name="text">
+             <string>Região Autónoma da Madeira</string>
+            </property>
+            <property name="text">
+             <string>MAD</string>
+            </property>
+            <property name="text">
+             <string>NUTS-II</string>
+            </property>
+            <item>
+             <property name="text">
+              <string>Região Autónoma da Madeira</string>
+             </property>
+             <property name="text">
+              <string>MAD</string>
+             </property>
+             <property name="text">
+              <string>NUTS-III</string>
+             </property>
+             <item>
+              <property name="text">
+               <string>Calheta (R.A.M.)</string>
+              </property>
+              <property name="text">
+               <string>3101</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Câmara de Lobos</string>
+              </property>
+              <property name="text">
+               <string>3102</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Funchal</string>
+              </property>
+              <property name="text">
+               <string>3103</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Machico</string>
+              </property>
+              <property name="text">
+               <string>3104</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ponta do Sol</string>
+              </property>
+              <property name="text">
+               <string>3105</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>PortoMoniz</string>
+              </property>
+              <property name="text">
+               <string>3106</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Ribeira Brava</string>
+              </property>
+              <property name="text">
+               <string>3107</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santa Cruz</string>
+              </property>
+              <property name="text">
+               <string>3108</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Santana</string>
+              </property>
+              <property name="text">
+               <string>3109</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>São Vicente</string>
+              </property>
+              <property name="text">
+               <string>3110</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+             <item>
+              <property name="text">
+               <string>Porto Santo</string>
+              </property>
+              <property name="text">
+               <string>3201</string>
+              </property>
+              <property name="text">
+               <string>Municipios</string>
+              </property>
+             </item>
+            </item>
+           </item>
+          </item>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="0" colspan="2">
+        <widget class="QPushButton" name="pB_Download">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Click to download</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="tab_2">
+      <attribute name="title">
+       <string>Help</string>
+      </attribute>
+      <widget class="QTextBrowser" name="textBrowser">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>541</width>
+         <height>321</height>
+        </rect>
+       </property>
+       <property name="html">
+        <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:600; font-style:normal;&quot;&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This plugin enables the open data download of geographical and statistical Information from Statistics Portugal (INE)&lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p align=&quot;justify&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt; To download the data select the year and double click in a geographical unit (Nacional, NUTS-II, NUTS-III ou municipality) in  the treeview, and the data will be added to Qgis.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;This is open data published in geopackage format.&lt;/span&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-size:10pt;&quot;&gt;&lt;br /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </item>
+   <item row="1" column="0" rowspan="2" colspan="2">
+    <widget class="QLabel" name="lbl1">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="button_box">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>button_box</sender>
+   <signal>accepted()</signal>
+   <receiver>downloadgeostatportugalDialogBase</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>button_box</sender>
+   <signal>rejected()</signal>
+   <receiver>downloadgeostatportugalDialogBase</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <buttongroups>
+  <buttongroup name="buttonGroupYears"/>
+ </buttongroups>
+</ui>
