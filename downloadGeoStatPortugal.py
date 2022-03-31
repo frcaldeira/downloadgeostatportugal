@@ -195,16 +195,16 @@ class downloadGeoStatPortugal:
         #The name of the files and path depends on geographical unit
         #That can be
         #1. Country
-            #http://mapas.ine.pt/download/files/2011/portugal2011.zip
+            #Web server path/portugal2011.zip
 
         #2. NUTS-I
-            #http://mapas.ine.pt/download/files/2011/continente2011.zip
+            #Web server path/continente2011.zip
         #3. NUTS-II
-            #http://mapas.ine.pt/download/files/2011/nuts2/norte2011.zip
+            #Web server path/norte2011.zip
         #4. NUTS-III
-            #http://mapas.ine.pt/download/files/2011/nuts3/bgri11_111.zip
+            #Web server path/bgri11_111.zip
         #5. Municipalities
-            #http://mapas.ine.pt/download/files/2011/municipios/BGRI2011_1601.zip
+            #Web server path/BGRI2011_1601.zip
 
         self.iface.messageBar().pushMessage("Info","Downloading data!")
 
@@ -216,7 +216,7 @@ class downloadGeoStatPortugal:
 
 
         # var with path
-        url = "http://mapas.ine.pt/download/filesGPG/" + year + "/"
+        url = "Web server path" + year + "/"
 
 
 
