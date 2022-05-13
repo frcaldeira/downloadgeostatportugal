@@ -1,1 +1,0 @@
-Folder that receive temporary data
