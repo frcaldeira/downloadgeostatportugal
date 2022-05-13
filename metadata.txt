@@ -6,26 +6,26 @@
 name=Download Statistics Portugal Open Data
 qgisMinimumVersion=3.0
 description=This plugin enables the open data download of geographical and statistical Information from Statistics Portugal
-version=0.1
+version=0.2
 author=Francisco Caldeira / Instituto Nacional de Estatística
 email=francisco.caldeira@ine.pt
 
 about=This plugin has been developed to allow more accessibility to the information available about Census (1991, 2001, 2011, 2021) small statistical areas and statistical indicators linked to them. This is Open Data available for both public organisms and private companies.
 
-tracker=http://bugs
-repository=http://repo
+tracker=https://github.com/frcaldeira/downloadgeostatportugal/issues
+repository=https://github.com/frcaldeira/downloadgeostatportugal
 # End of mandatory metadata
 
 # Recommended items:
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-# changelog=
+changelog= Fix folder issue and add some metadata information.
 
 # Tags are comma separated with spaces allowed
 tags=python
 
-homepage=http://homepage
+homepage=http://mapas.ine.pt/download/plugin.html
 category=Plugins
 icon=icon.png
 # experimental flag
