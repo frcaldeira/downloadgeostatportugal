@@ -270,6 +270,10 @@ class downloadGeoStatPortugal:
 
         #DownloadPath
         pasta = self.plugin_dir + '/dados_INE/'
+        
+        if not os.path.exists(pasta):
+            os.makedirs(pasta)
+            
         # open method to open a file on your system and write the contents
         with open( pasta + filename, "wb") as code:
             code.write(zipresp.content)
