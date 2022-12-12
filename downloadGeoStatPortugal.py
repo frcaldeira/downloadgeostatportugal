@@ -270,7 +270,7 @@ class downloadGeoStatPortugal:
 
         #DownloadPath
         pasta = self.plugin_dir + '/dados_INE/'
-        
+        // thanks gvlx  
         if not os.path.exists(pasta):
             os.makedirs(pasta)
             
