@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>575</width>
-    <height>416</height>
+    <width>587</width>
+    <height>417</height>
    </rect>
   </property>
   <property name="font">
@@ -27,6 +27,46 @@
    <locale language="English" country="UnitedKingdom"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0" rowspan="2" colspan="2">
+    <widget class="QLabel" name="lbl1">
+     <property name="text">
+      <string/>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>200</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QDialogButtonBox" name="button_box">
+       <property name="maximumSize">
+        <size>
+         <width>100</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="standardButtons">
+        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
    <item row="0" column="0" colspan="2">
     <widget class="QTabWidget" name="tabWidget">
      <property name="enabled">
@@ -43,7 +83,7 @@
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
-       <string>Census</string>
+       <string>BGRI</string>
       </attribute>
       <layout class="QGridLayout" name="gridLayout_2">
        <item row="0" column="0">
@@ -205,12 +245,12 @@
          </column>
          <column>
           <property name="text">
-           <string>name</string>
+           <string notr="true">2</string>
           </property>
          </column>
          <column>
           <property name="text">
-           <string>nivel</string>
+           <string notr="true">3</string>
           </property>
          </column>
          <item>
@@ -3605,7 +3645,7 @@
             <string>Região Autónoma dos Açores</string>
            </property>
            <property name="text">
-            <string>raa</string>
+            <string>RAA</string>
            </property>
            <property name="text">
             <string>NUTS-I</string>
@@ -3615,7 +3655,7 @@
              <string>Região Autónoma dos Açores</string>
             </property>
             <property name="text">
-             <string>raa</string>
+             <string>RAA</string>
             </property>
             <property name="text">
              <string>NUTS-II</string>
@@ -3625,7 +3665,7 @@
               <string>Região Autónoma dos Açores</string>
              </property>
              <property name="text">
-              <string>raa</string>
+              <string>RAA</string>
              </property>
              <property name="text">
               <string>NUTS-III</string>
@@ -4011,6 +4051,370 @@
        </item>
       </layout>
      </widget>
+     <widget class="QWidget" name="tab_3">
+      <attribute name="title">
+       <string>Grid1K</string>
+      </attribute>
+      <widget class="QWidget" name="layoutWidget">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>89</width>
+         <height>168</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_3">
+        <item>
+         <widget class="QLabel" name="label_3">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Reference data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb2021_GRID">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>2021</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QTreeWidget" name="GU_treeWidget_Grid">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>104</x>
+         <y>9</y>
+         <width>450</width>
+         <height>289</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>450</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Select a geographical unit do download</string>
+       </property>
+       <property name="headerHidden">
+        <bool>true</bool>
+       </property>
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string notr="true">1</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">2</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string notr="true">3</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>Portugal</string>
+        </property>
+        <property name="text">
+         <string>portugal</string>
+        </property>
+        <property name="text">
+         <string>Nacional</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Continente</string>
+         </property>
+         <property name="text">
+          <string>CONT</string>
+         </property>
+         <property name="text">
+          <string>NUTS-I</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Região Autónoma dos Açores</string>
+         </property>
+         <property name="text">
+          <string>RAA</string>
+         </property>
+         <property name="text">
+          <string>NUTS-I</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Região Autónoma da Madeira</string>
+         </property>
+         <property name="text">
+          <string>MAD</string>
+         </property>
+         <property name="text">
+          <string>NUTS-I</string>
+         </property>
+        </item>
+       </item>
+      </widget>
+      <widget class="QPushButton" name="pB_Download_Grid">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>545</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Click to download</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QWidget" name="tab_7">
+      <attribute name="title">
+       <string>Localities</string>
+      </attribute>
+      <widget class="QTreeWidget" name="GU_treeWidget_Lugares">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>104</x>
+         <y>9</y>
+         <width>450</width>
+         <height>289</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>450</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>Select a geographical unit do download</string>
+       </property>
+       <property name="headerHidden">
+        <bool>true</bool>
+       </property>
+       <property name="columnCount">
+        <number>3</number>
+       </property>
+       <attribute name="headerVisible">
+        <bool>false</bool>
+       </attribute>
+       <column>
+        <property name="text">
+         <string>Select a geographical unit</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>name</string>
+        </property>
+       </column>
+       <column>
+        <property name="text">
+         <string>nivel</string>
+        </property>
+       </column>
+       <item>
+        <property name="text">
+         <string>Portugal</string>
+        </property>
+        <property name="text">
+         <string>portugal</string>
+        </property>
+        <property name="text">
+         <string>Nacional</string>
+        </property>
+        <item>
+         <property name="text">
+          <string>Continente</string>
+         </property>
+         <property name="text">
+          <string>CONT</string>
+         </property>
+         <property name="text">
+          <string>NUTS-I</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Região Autónoma dos Açores</string>
+         </property>
+         <property name="text">
+          <string>RAA</string>
+         </property>
+         <property name="text">
+          <string>NUTS-I</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Região Autónoma da Madeira</string>
+         </property>
+         <property name="text">
+          <string>MAD</string>
+         </property>
+         <property name="text">
+          <string>NUTS-I</string>
+         </property>
+        </item>
+       </item>
+      </widget>
+      <widget class="QWidget" name="layoutWidget_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>10</y>
+         <width>89</width>
+         <height>168</height>
+        </rect>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_4">
+        <item>
+         <widget class="QLabel" name="label_4">
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Reference data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QRadioButton" name="rb2021_LOCAL">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
+          <property name="font">
+           <font>
+            <pointsize>10</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>2021</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QPushButton" name="pB_Download_Lugares">
+       <property name="enabled">
+        <bool>false</bool>
+       </property>
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>310</y>
+         <width>545</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>Click to download</string>
+       </property>
+      </widget>
+     </widget>
      <widget class="QWidget" name="tab_2">
       <attribute name="title">
        <string>Help</string>
@@ -4044,46 +4448,6 @@ p, li { white-space: pre-wrap; }
       </widget>
      </widget>
     </widget>
-   </item>
-   <item row="1" column="0" rowspan="2" colspan="2">
-    <widget class="QLabel" name="lbl1">
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <layout class="QHBoxLayout" name="horizontalLayout">
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>200</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QDialogButtonBox" name="button_box">
-       <property name="maximumSize">
-        <size>
-         <width>100</width>
-         <height>16777215</height>
-        </size>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="standardButtons">
-        <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
   </layout>
  </widget>
