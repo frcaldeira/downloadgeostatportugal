@@ -51,6 +51,9 @@ class downloadGeoStatPortugal:
     global getChildNodeLevel
     getChildNodeLevel = "xxx"
 
+    global tester
+    tester = ""
+
     def __init__(self, iface):
         """Constructor.
 
@@ -190,53 +193,71 @@ class downloadGeoStatPortugal:
         # will be set False in run()
         self.first_start = True
 
-    def downloadData(self,GeographicalUnit, year, NodeLevel):
+    def downloadData(self,GeographicalUnit, year, NodeLevel, source):
         #setting the path to download
         #The name of the files and path depends on geographical unit
         #That can be
         #1. Country
-            #Web server path/portugal2011.zip
+            #http://mapas.ine.pt/download/files/2011/portugal2011.zip
 
         #2. NUTS-I
-            #Web server path/continente2011.zip
+            #http://mapas.ine.pt/download/files/2011/continente2011.zip
         #3. NUTS-II
-            #Web server path/norte2011.zip
+            #http://mapas.ine.pt/download/files/2011/nuts2/norte2011.zip
         #4. NUTS-III
-            #Web server path/bgri11_111.zip
+            #http://mapas.ine.pt/download/files/2011/nuts3/bgri11_111.zip
         #5. Municipalities
-            #Web server path/BGRI2011_1601.zip
+            #http://mapas.ine.pt/download/files/2011/municipios/BGRI2011_1601.zip
 
         self.iface.messageBar().pushMessage("Info","Downloading data!")
 
-        #Identify prefix BGRI ou BGRE
-        if year == "1991":
-            pre = "BGRE"
-        else:
-            pre = "BGRI"
 
+
+        if (source == "BGRI"):
+            tabSource = ""
+            StringYear = year
+                #Identify prefix BGRI ou BGRE
+            if year == "1991":
+                pre = "BGRE"
+            else:
+                pre = "BGRI"
+        elif (source == "GRID"):
+            tabSource = "grid"
+            StringYear = year
+            pre = "GRID1K"
+        elif (source == "Localities"):
+            tabSource = "localities"
+            StringYear = year
+            pre = "LUGARES"
+            
 
         # var with path
-        url = "Web server path" + year + "/"
+        #url = "http://mapas.ine.pt/download/filesGPG/" + year + tabSource + "/"
+        url = "http://pt-lnx23.ine.pt/pmapper/download/filesGPG/" + year + tabSource + "/" #DEV enviroment
 
-
-
+        
 
         #Construct the download path
-        if NodeLevel == "Nacional":
-            url = url + "portugal" + year + ".zip"
+        if (NodeLevel == "Nacional" and source == "BGRI"):
+            url = url + "portugal" + StringYear + ".zip"
+        if (NodeLevel == "Nacional" and source == "GRID"):
+            url = url + "GRID1K21_PORTUGAL" +   ".zip"
+        if (NodeLevel == "Nacional" and source == "Localities"):
+            url = url + "LUGARES21_PORTUGAL" +   ".zip"
 
         if NodeLevel == "NUTS-I":
-            url = url + pre + year[2:] + "_" + GeographicalUnit  + ".zip"
+            url = url + pre + StringYear[2:] + "_" + GeographicalUnit  + ".zip"
+            
 
 
         if NodeLevel == "NUTS-II":
-            url = url + "nuts2/" + pre + year[2:] + "_" + GeographicalUnit  + ".zip"
+            url = url + "nuts2/" + pre + StringYear[2:] + "_" + GeographicalUnit  + ".zip"
 
         if NodeLevel == "NUTS-III":
-            url = url  + "nuts3/" + pre + year[2:] + "_" + GeographicalUnit  + ".zip"
+            url = url  + "nuts3/" + pre + StringYear[2:] + "_" + GeographicalUnit  + ".zip"
 
         if NodeLevel == "Municipios":
-            url = url  + "municipios/" + pre + year + "_" + GeographicalUnit  + ".zip"
+            url = url  + "municipios/" + pre + StringYear + "_" + GeographicalUnit  + ".zip"
 
         #Dealing with the excepctions that are Portugal and R.A. dos Açores
         #They are exceptions because there are more than one layer inside the geopackage
@@ -253,7 +274,6 @@ class downloadGeoStatPortugal:
         #self.dlg.lbl1.setText( "Downloading data, please wait!")
         QApplication.setOverrideCursor(Qt.WaitCursor)
 
-        self.dlg.lbl1.setText( url)
 
 
 
@@ -263,17 +283,17 @@ class downloadGeoStatPortugal:
         # Download the file from the URL defined in binary format
         zipresp = requests.get(url, stream = True)
 
-        self.dlg.lbl1.setText( url)
 
 
 
 
         #DownloadPath
         pasta = self.plugin_dir + '/dados_INE/'
-        // thanks gvlx  
+
         if not os.path.exists(pasta):
             os.makedirs(pasta)
-            
+
+
         # open method to open a file on your system and write the contents
         with open( pasta + filename, "wb") as code:
             code.write(zipresp.content)
@@ -307,55 +327,75 @@ class downloadGeoStatPortugal:
 
         #self.dlg.lbl1.setText(gpkg_BGRI_layer1 )
         #self.dlg.lbl1.setText("The layer " + BGRILayerName + " was added to the map" )
+        if (source == "BGRI" or source == "Localities"):
+            if (NodeLevel == "Nacional") | (GeographicalUnit == "RAA"):
 
-        if (NodeLevel == "Nacional") | (GeographicalUnit == "raa"):
+                if year == "1991":
+                    express = "BGRE91"
+                else:
+                    express = "BGRI" + year[2:4]
+              
 
-            if year == "1991":
-                express = "BGRE91"
+                if source == "Localities":
+                    express = "LUGARES" + year[2:4]
+                
+
+                
+
+                gpkg_BGRI_layer1 = path_to_gpkg + "|layername=" + express + "_AC25"
+                gpkg_BGRI_layer2 = path_to_gpkg + "|layername=" + express + "_AC26"
+                gpkg_BGRI_layer3 = path_to_gpkg + "|layername=" + express + "_CONT"
+                gpkg_BGRI_layer4 = path_to_gpkg + "|layername=" + express + "_MAD"
+                vlayer1 = QgsVectorLayer(gpkg_BGRI_layer1, express + "_AC25", "ogr")
+                vlayer2 = QgsVectorLayer(gpkg_BGRI_layer2, express + "_AC26", "ogr")
+                vlayer3 = QgsVectorLayer(gpkg_BGRI_layer3, express + "_CONT", "ogr")
+                vlayer4 = QgsVectorLayer(gpkg_BGRI_layer4, express + "_MAD", "ogr")
+                vlayer1.setName(express + "_AC25")
+                vlayer2.setName(express + "_AC26")
+                vlayer3.setName(express + "_CONT")
+                vlayer4.setName(express + "_MAD")
+
+
+                vlayer1.loadNamedStyle(self.plugin_dir+'/' +  source + year + '.qml')
+                vlayer2.loadNamedStyle(self.plugin_dir+'/' +  source + year + '.qml')
+                vlayer3.loadNamedStyle(self.plugin_dir+'/' +  source + year + '.qml')
+                vlayer4.loadNamedStyle(self.plugin_dir+'/' +  source + year + '.qml')
+
+                QgsProject.instance().addMapLayer(vlayer1)
+                QgsProject.instance().addMapLayer(vlayer2)
+
+                if NodeLevel == "Nacional":
+                    QgsProject.instance().addMapLayer(vlayer3)
+                    QgsProject.instance().addMapLayer(vlayer4)
+
+
+
             else:
-                express = "BGRI" + year[2:4]
+                vlayer1 = QgsVectorLayer(gpkg_BGRI_layer1, BGRILayerName, "ogr")
+                #self.iface.messageBar().pushMessage("Info","Fucking hostile")
 
-            gpkg_BGRI_layer1 = path_to_gpkg + "|layername=" + express + "_AC25"
-            gpkg_BGRI_layer2 = path_to_gpkg + "|layername=" + express + "_AC26"
-            gpkg_BGRI_layer3 = path_to_gpkg + "|layername=" + express + "_CONT"
-            gpkg_BGRI_layer4 = path_to_gpkg + "|layername=" + express + "_MAD"
-            vlayer1 = QgsVectorLayer(gpkg_BGRI_layer1, express + "_AC25", "ogr")
-            vlayer2 = QgsVectorLayer(gpkg_BGRI_layer2, express + "_AC26", "ogr")
-            vlayer3 = QgsVectorLayer(gpkg_BGRI_layer3, express + "_CONT", "ogr")
-            vlayer4 = QgsVectorLayer(gpkg_BGRI_layer4, express + "_MAD", "ogr")
-            vlayer1.setName(express + "_AC25")
-            vlayer2.setName(express + "_AC26")
-            vlayer3.setName(express + "_CONT")
-            vlayer4.setName(express + "_MAD")
+                # Set the layer name
+                vlayer1.setName(BGRILayerName)
 
+                #Symbology used (drak green outline and label the BGRI code only visible
+                #when scale < 3 000 dark green text either
+                vlayer1.loadNamedStyle(self.plugin_dir+'/' +  source + year + '.qml')
 
-            vlayer1.loadNamedStyle(self.plugin_dir+'/BGRI' + year + '.qml')
-            vlayer2.loadNamedStyle(self.plugin_dir+'/BGRI' + year + '.qml')
-            vlayer3.loadNamedStyle(self.plugin_dir+'/BGRI' + year + '.qml')
-            vlayer4.loadNamedStyle(self.plugin_dir+'/BGRI' + year + '.qml')
-
-            QgsProject.instance().addMapLayer(vlayer1)
-            QgsProject.instance().addMapLayer(vlayer2)
-
-            if NodeLevel == "Nacional":
-                QgsProject.instance().addMapLayer(vlayer3)
-                QgsProject.instance().addMapLayer(vlayer4)
-
-
-
-        else:
+                #Add the layer to the map bro
+                QgsProject.instance().addMapLayer(vlayer1)
+        
+        if (source == "GRID"):
             vlayer1 = QgsVectorLayer(gpkg_BGRI_layer1, BGRILayerName, "ogr")
+            vlayer1.loadNamedStyle(self.plugin_dir+'/GRID' + year + '.qml')
+            QgsProject.instance().addMapLayer(vlayer1)
 
             # Set the layer name
             vlayer1.setName(BGRILayerName)
 
-            #Symbology used (drak green outline and label the BGRI code only visible
-            #when scale < 3 000 dark green text either
-            vlayer1.loadNamedStyle(self.plugin_dir+'/BGRI' + year + '.qml')
 
-            #Add the layer to the map bro
-            QgsProject.instance().addMapLayer(vlayer1)
-
+            # Set the layer name
+            vlayer1.setName(BGRILayerName)
+        
 
         #Warns the user that
         #self.dlg.lbl1.setText("The layer " + url + " was added to the map" )
@@ -366,22 +406,31 @@ class downloadGeoStatPortugal:
 
 
 
-    def SelectedYearChanged(self):
+    def SelectedYearChanged(self, source):
         global SelectedYear
-        if self.dlg.rb1991.isChecked()==True:
-            SelectedYear = "1991"
+        if (source == "BGRI"):
+            if self.dlg.rb1991.isChecked()==True:
+                SelectedYear = "1991"
 
 
-        if self.dlg.rb2001.isChecked()==True:
-            SelectedYear = "2001"
+            if self.dlg.rb2001.isChecked()==True:
+                SelectedYear = "2001"
 
 
-        if self.dlg.rb2011.isChecked()==True:
-            SelectedYear = "2011"
+            if self.dlg.rb2011.isChecked()==True:
+                SelectedYear = "2011"
 
 
-        if self.dlg.rb2021.isChecked()==True:
-            SelectedYear = "2021"
+            if self.dlg.rb2021.isChecked()==True:
+                SelectedYear = "2021"
+        
+        if (source == "GRID"):
+            if self.dlg.rb2021_GRID.isChecked()==True:
+                SelectedYear = "2011"
+
+
+            if self.dlg.rb2021_GRID.isChecked()==True:
+                SelectedYear = "2021"
 
         #Enable the download button
         getSelected = self.dlg.GU_treeWidget.selectedItems()
@@ -389,8 +438,15 @@ class downloadGeoStatPortugal:
             self.dlg.pB_Download.setEnabled(True)
 
 
-    def TreeViewSelectionChanged(self):
-         getSelected = self.dlg.GU_treeWidget.selectedItems()
+    def TreeViewSelectionChanged(self, source):
+         if (source == "BGRI"):
+            getSelected = self.dlg.GU_treeWidget.selectedItems()
+         elif (source == "GRID"):
+            getSelected = self.dlg.GU_treeWidget_Grid.selectedItems()
+         elif (source == "Localities"):
+            getSelected = self.dlg.GU_treeWidget_Lugares.selectedItems()
+
+        
          global SelectedGeography
          global getChildNodeLevel
          if getSelected:
@@ -398,14 +454,28 @@ class downloadGeoStatPortugal:
              getChildNode = baseNode.text(1)
              getChildNodeLevel = baseNode.text(2)
              SelectedGeography = getChildNode
-             #self.dlg.lbl1.setText(SelectedGeography)
+             #self.dlg.lbl1.setText(getChildNode)
 
             #Enable the download button
-             self.dlg.pB_Download.setEnabled(True)
+         if (source == "BGRI"):
+            self.dlg.pB_Download.setEnabled(True)
+         elif (source == "GRID"):
+            self.dlg.pB_Download_Grid.setEnabled(True)
+         elif (source == "Localities"):
+            self.dlg.pB_Download_Lugares.setEnabled(True)
+
+             
 
 
-    def TreeViewitemDoubleClicked(self):
-         getSelected = self.dlg.GU_treeWidget.selectedItems()
+    def TreeViewitemDoubleClicked(self, source):
+         if (source == "BGRI"):
+            getSelected = self.dlg.GU_treeWidget.selectedItems()
+         elif (source == "GRID"):
+            getSelected = self.dlg.GU_treeWidget_Grid.selectedItems()
+         elif (source == "Localities"):
+            getSelected = self.dlg.GU_treeWidget_Lugares.selectedItems()
+
+        
          global SelectedGeography
          global getChildNodeLevel
          if getSelected:
@@ -413,14 +483,27 @@ class downloadGeoStatPortugal:
              getChildNode = baseNode.text(1)
              getChildNodeLevel = baseNode.text(2)
              SelectedGeography = getChildNode
+             #self.dlg.lbl1.setText(getChildNode)
 
             #Enable the download button
-             self.dlg.pB_Download.setEnabled(True)
+         if (source == "BGRI"):
+            self.dlg.pB_Download.setEnabled(True)
+         elif (source == "GRID"):
+            self.dlg.pB_Download_Grid.setEnabled(True)
+         elif (source == "Localities"):
+            self.dlg.pB_Download_Lugares.setEnabled(True)
 
-    def button_DownloadData(self):
-        self.dlg.pB_Download.setEnabled(False)
+    def button_DownloadData(self, source):
+        if (source == "BGRI"):
+            self.dlg.pB_Download.setEnabled(False)
+        elif (source == "GRID"):
+            self.dlg.pB_Download_Grid.setEnabled(False)
+        elif (source == "Localities"):
+            self.dlg.pB_Download_Lugares.setEnabled(False)
+        
         self.dlg.lbl1.setText(SelectedGeography + SelectedYear + getChildNodeLevel )
-        self.downloadData (SelectedGeography, SelectedYear, getChildNodeLevel)
+    
+        self.downloadData (SelectedGeography, SelectedYear, getChildNodeLevel , source)
         #self.dlg.pB_Download.setEnabled(True)
 
     def unload(self):
@@ -446,15 +529,39 @@ class downloadGeoStatPortugal:
         self.dlg.GU_treeWidget.hideColumn(1)
         self.dlg.GU_treeWidget.hideColumn(2)
 
-        self.dlg.GU_treeWidget.itemSelectionChanged.connect(lambda:self.TreeViewSelectionChanged())
+        self.dlg.GU_treeWidget_Grid.hideColumn(1)
+        self.dlg.GU_treeWidget_Grid.hideColumn(2)
 
-        self.dlg.GU_treeWidget.itemDoubleClicked.connect(lambda:self.TreeViewitemDoubleClicked())
+        self.dlg.GU_treeWidget_Lugares.hideColumn(1)
+        self.dlg.GU_treeWidget_Lugares.hideColumn(2)
 
-        self.dlg.rb1991.toggled.connect(lambda:self.SelectedYearChanged())
-        self.dlg.rb2001.toggled.connect(lambda:self.SelectedYearChanged())
-        self.dlg.rb2011.toggled.connect(lambda:self.SelectedYearChanged())
-        self.dlg.rb2021.toggled.connect(lambda:self.SelectedYearChanged())
-        self.dlg.pB_Download.clicked.connect(lambda:self.button_DownloadData())
+        self.dlg.GU_treeWidget.itemSelectionChanged.connect(lambda:self.TreeViewSelectionChanged("BGRI"))
+        self.dlg.GU_treeWidget_Grid.itemSelectionChanged.connect(lambda:self.TreeViewSelectionChanged("GRID"))
+        self.dlg.GU_treeWidget_Lugares.itemSelectionChanged.connect(lambda:self.TreeViewSelectionChanged("Localities"))
+
+        self.dlg.GU_treeWidget.itemDoubleClicked.connect(lambda:self.TreeViewitemDoubleClicked("BGRI"))
+        self.dlg.GU_treeWidget_Grid.itemDoubleClicked.connect(lambda:self.TreeViewitemDoubleClicked("GRID"))
+        self.dlg.GU_treeWidget_Lugares.itemDoubleClicked.connect(lambda:self.TreeViewitemDoubleClicked("Localities"))
+
+        # TO DO FOR YEARS OF GRID 
+        self.dlg.rb1991.toggled.connect(lambda:self.SelectedYearChanged("BGRI"))
+        self.dlg.rb2001.toggled.connect(lambda:self.SelectedYearChanged("BGRI"))
+        self.dlg.rb2011.toggled.connect(lambda:self.SelectedYearChanged("BGRI"))
+        self.dlg.rb2021.toggled.connect(lambda:self.SelectedYearChanged("BGRI"))
+        #Years in Grid
+        self.dlg.rb2021_GRID.toggled.connect(lambda:self.SelectedYearChanged("GRID"))
+        #Years in Localities
+        self.dlg.rb2021_LOCAL.toggled.connect(lambda:self.SelectedYearChanged("Localities"))
+
+        # TO DO FOR BUTTON CLICK
+        #If the source is the BGRI tab
+        self.dlg.pB_Download.clicked.connect(lambda:self.button_DownloadData("BGRI"))
+
+        #If the source is the GRID tab
+        self.dlg.pB_Download_Grid.clicked.connect(lambda:self.button_DownloadData("GRID"))
+
+        #If the source is the Localities tab
+        self.dlg.pB_Download_Lugares.clicked.connect(lambda:self.button_DownloadData("Localities"))
 
         # show the dialog
         self.dlg.show()

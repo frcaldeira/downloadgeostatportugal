@@ -7,7 +7,7 @@ name=Download Statistics Portugal Open Data
 qgisMinimumVersion=3.0
 description=This plugin enables the open data download of geographical and statistical Information from Statistics Portugal
 version=0.2
-author=Francisco Caldeira / Instituto Nacional de Estatística
+author=Francisco Caldeira  - Instituto Nacional de Estatística
 email=francisco.caldeira@ine.pt
 
 about=This plugin has been developed to allow more accessibility to the information available about Census (1991, 2001, 2011, 2021) small statistical areas and statistical indicators linked to them. This is Open Data available for both public organisms and private companies.
@@ -20,12 +20,12 @@ repository=https://github.com/frcaldeira/downloadgeostatportugal
 
 hasProcessingProvider=no
 # Uncomment the following line and add your changelog:
-changelog= Fix folder issue and add some metadata information.
+changelog=Added information to download for the Localities 2021.
 
 # Tags are comma separated with spaces allowed
-tags=python
+tags=Censos, Census, Censos 2021, BGRI, Base geográfica de georeferenciação da informação, INE, Instituto Nacional de Estatística, small statistical areas, population, população, alojamentos, agregados, edifícios, buildings, households
 
-homepage=http://mapas.ine.pt/download/plugin.html
+homepage=https://github.com/frcaldeira/downloadgeostatportugal
 category=Plugins
 icon=icon.png
 # experimental flag
